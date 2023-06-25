@@ -3,8 +3,6 @@ from datetime import datetime  # Core Python Module
 import pandas as pd
 
 import streamlit as st  # pip install streamlit
-import base64
-from fpdf import FPDF
 
 
 # -------------- SETTINGS --------------
@@ -40,11 +38,6 @@ year = d.year
 month = d.month
 day = d.day
 
-def create_download_link(val, filename):
-    b64 = base64.b64encode(val)  # val looks like b'...'
-    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
-
-
 st.write('কি ধরণের পশু: ')
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
@@ -69,10 +62,3 @@ if amount >0:
     
 st.write("###### ৫ % হাসিলের টাকা: ", st.session_state['amount'])
 button = st.button("প্রিন্ট")
-# if button:
-#     pdf = FPDF()
-#     pdf.add_page()
-#     pdf.set_font('Arial', 'B', 16)
-#     pdf.cell(40, 10, "হাসিল আদায়ের রশিদ")
-#     html = create_download_link(pdf.output(dest="S").encode("cp1252"), "test")
-#     st.markdown(html, unsafe_allow_html=True)
