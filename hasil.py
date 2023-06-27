@@ -3,8 +3,7 @@ from datetime import datetime  # Core Python Module
 import pandas as pd
 
 import streamlit as st  # pip install streamlit
-from fpdf import FPDF
-import base64
+
 
 # -------------- SETTINGS --------------
 currency = "৳"
